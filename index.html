@@ -48,6 +48,125 @@
       const num2 = 3;
       alert(`${num1} elevado a ${num2} = ${num1 ** num2}`);
 
+      function calculadora(num1, num2, sinal) {
+  switch (sinal) {
+    case "+":
+      return num1 + num2;
+    case "-":
+      return num1 - num2;
+    case "*":
+      return num1 * num2;
+    case "/":
+      return num2 !== 0 ? num1 / num2 : "Não pode dividir por 0"; // Verifica se o divisor é diferente de 0
+    default:
+      return "Inválida"; // Valor default caso operador seja inválido
+  }
+}
+
+console.log("Resultado", calculadora(0, 0, "+")); // 0
+console.log("Resultado", calculadora(5, 0, "/")); // 0
+console.log("Resultado", calculadora(0, 5, "/")); // 0
+
+function primo(num) {
+  if (num <= 1) {
+    console.log("Não é primo"); // Números menores ou iguais a 1 não são primos
+    return;
+  }
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      console.log("Não é primo"); // Se num é divisível por qualquer número entre 2 e num-1, não é primo
+      return;
+    }
+  }
+  console.log("É primo"); // Se não encontrar divisores é primo
+}
+
+primo(7); // "É primo"
+primo(8); // "Não é primo"
+
+function caracteresEspeciais(str) {
+  const charEspeciais = "@#$%&"; // Caracteres especiais em uma constante para verificar depois
+  let cont = 0; // contador de quantos caracteres especiais tem na string
+  for (let caracteres of str) {
+    if (charEspeciais.includes(caracteres)) cont++;
+  }
+  console.log(cont);
+}
+
+caracteresEspeciais("##@#@#kalçsda");
+
+function mediaNota(p1 = 0, p2 = 0, p3 = 0, p4 = 0) {
+  let media = (p1 + p2 + p3 + p4) / 4;
+  if (media >= 7) {
+    return "Aprovado";
+  } else if (media >= 5 && media < 7) {
+    return "Recuperação";
+  } else {
+    return "Reprovado";
+  }
+}
+
+console.log(mediaNota(5, 10, 8, 5));
+console.log(mediaNota(2, 5, 3, 5));
+
+
+let pessoa = {
+  nome: "Carlos",
+  idade: 30,
+  profissão: "dev",
+  saudacao: function () {
+    console.log("Olá " + this.nome);
+  },
+};
+
+pessoa.saudacao();
+
+let outraPessoa = {
+  nome: "Ana",
+  idade: 25,
+  saudacao: pessoa.saudacao,
+};
+
+outraPessoa.saudacao();
+
+console.log(pessoa["idade"]);
+
+pessoa.email = "email@gmail.com";
+
+delete pessoa.email;
+
+pessoa.idade = 43;
+
+pessoa["idade"] = 32;
+
+console.log(pessoa);
+
+const oi = [1];
+
+oi[1] = 2;
+
+console.log(oi);
+
+let texto = "Java é lgl";
+console.log(texto[texto.length - 1]);
+
+console.log(texto.substring(5, 10));
+
+let nomes = ["Sheila", "Herbert", "Everlyn", "Laryssa"];
+nomes.push("Luan");
+console.log(nomes);
+
+nomes.shift();
+console.log(nomes);
+
+nomes.pop();
+console.log(nomes);
+
+console.log(nomes.length);
+
+
+
+      
    </script>
 </body>
 
