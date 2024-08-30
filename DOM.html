@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Exemplo de DOM - Document Object Model</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   <h1>DOM - Document Object Model</h1>
+   <ol>
+      <li>
+         <h2>O que é o DOM e qual é a sua importância na web?</h2>
+         <p>O DOM (Document Object Model) é uma interface de programação que representa documentos HTML e XML como
+            uma árvore de objetos. Ele permite a manipulação da estrutura do documento, possibilitando alterações
+            dinâmicas no conteúdo, estrutura e estilo da página, além de criar interatividade nas páginas web.</p>
+      </li>
+      <li>
+         <h2>Como o DOM relaciona a estrutura HTML de uma página com o navegador?</h2>
+         <p>O navegador converte o HTML em uma árvore de DOM durante o carregamento da página. Cada elemento HTML se
+            torna um nó na árvore do DOM. O navegador usa essa árvore para renderizar a página, e alterações no DOM
+            afetam a renderização.</p>
+      </li>
+      <li>
+         <h2>Como o DOM organiza os elementos de uma página web em uma estrutura hierárquica?</h2>
+         <p>O DOM organiza os elementos como uma árvore hierárquica, com diferentes tipos de nós, como:</p>
+         <ul>
+            <li><strong>Nó do Documento:</strong> Raiz da árvore.</li>
+            <li><strong>Elementos:</strong> Representam tags HTML.</li>
+            <li><strong>Atributos:</strong> Associados aos elementos.</li>
+            <li><strong>Texto:</strong> Conteúdo textual dos elementos.</li>
+         </ul>
+      </li>
+      <li>
+         <h2>Exemplos de como essa hierarquia é representada</h2>
+         <p>Aqui está um exemplo simples de como a hierarquia do DOM pode ser representada:</p>
+         <pre>
+                Document
+                 └── html
+                     ├── head
+                     │   └── title
+                     │       └── "Minha Página"
+                     └── body
+                         ├── h1
+                         │   └── "Olá, Mundo!"
+                         ├── p
+                         │   └── "Bem-vindo à minha página."
+                         └── a
+                             ├── "Visite meu site"
+                             └── href="https://exemplo.com"
+            </pre>
+      </li>
+      <li>
+         <h2>Como JavaScript pode ser usado para acessar, manipular e modificar elementos do DOM?</h2>
+         <p>JavaScript pode acessar, manipular e modificar elementos do DOM através de uma variedade de métodos e
+            propriedades, como:</p>
+         <ul>
+            <li><strong>Selecionar Elementos:</strong> Usando métodos como <code>document.getElementById()</code> e <code>document.querySelector()</code>.</li>
+            <li><strong>Modificar Conteúdo:</strong> Alterar o texto ou HTML dentro de um elemento usando propriedades como <code>innerText</code> e <code>innerHTML</code>.</li>
+            <li><strong>Alterar Estilos:</strong> Modificar o CSS de um elemento usando a propriedade <code>style</code>.</li>
+            <li><strong>Adicionar/Remover Elementos:</strong> Usar métodos como <code>appendChild()</code>, <code>removeChild()</code> e <code>createElement()</code>.</li>
+         </ul>
+      </li>
+      <li>
+         <h2>Exemplos de métodos comuns do DOM</h2>
+         <ul>
+            <li><code>document.getElementById('id')</code>: Seleciona um elemento com o ID especificado.</li>
+            <li><code>document.querySelector('.classe')</code>: Seleciona o primeiro elemento que corresponde ao seletor CSS fornecido.</li>
+            <li><code>element.innerText</code>: Altera o texto dentro de um elemento.</li>
+            <li><code>element.setAttribute('attribute', 'value')</code>: Define um atributo para um elemento.</li>
+            <li><code>element.addEventListener('event', function)</code>: Adiciona um manipulador de eventos para o elemento.</li>
+         </ul>
+      </li>
+      <li>
+         <h2>Como os eventos funcionam no DOM?</h2>
+         <p>Os eventos no DOM funcionam como sinais que informam quando algo acontece na página web, como cliques,
+            digitação ou movimentação do mouse. Quando um evento ocorre, ele é capturado pelo DOM e pode ser tratado
+            usando manipuladores de eventos.</p>
+         <ul>
+            <li><strong>Captura e Propagação:</strong> Os eventos podem ser capturados em diferentes fases: captura (de cima para baixo) e bolha (de baixo para cima).</li>
+            <li><strong>Manipuladores de Eventos:</strong> Funções que são executadas em resposta a um evento específico.</li>
+         </ul>
+      </li>
+      <li>
+         <h2>Exemplos de como podemos usar eventos para tornar uma página web interativa</h2>
+         <p>Abaixo estão alguns exemplos simples:</p>
+         <ul>
+            <li><strong>Clique em Botão:</strong></li>
+            <pre>
+                    <button id="myButton">Clique-me!</button>
+                    <script>
+                     document.getElementById('myButton').addEventListener('click', function () {
+                        alert('Botão clicado!');
+                     });
+                  </script>
+                </pre>
+            <li><strong>Entrada em Campo de Texto:</strong></li>
+            <pre>
+                    <input type="text" id="myInput" placeholder="Digite algo">
+                    <p id="output"></p>
+                    <script>
+                     document.getElementById('myInput').addEventListener('input', function (event) {
+                        document.getElementById('output').innerText = 'Você digitou: ' + event.target.value;
+                     });
+                  </script>
+                </pre>
+         </ul>
+      </li>
+   </ol>
+
+   <div id="container">
+      <p id="paragrafo">Este é um parágrafo que pode ser modificado.</p>
+      <button id="botao">Clique aqui para alterar o texto</button>
+      <button id="botaoHighlight">Destacar parágrafo</button>
+   </div>
+
+   <script>
+      // Selecionando elementos do DOM
+      const paragrafo = document.getElementById('paragrafo');
+      const botao = document.getElementById('botao');
+      const botaoHighlight = document.getElementById('botaoHighlight');
+
+      // Evento para modificar o texto do parágrafo
+      botao.addEventListener('click', function () {
+         paragrafo.textContent = 'O texto do parágrafo foi alterado!';
+      });
+
+      // Evento para destacar o parágrafo
+      botaoHighlight.addEventListener('click', function () {
+         paragrafo.classList.toggle('highlight');
+      });
+   </script>
+
+</body>
+
+</html>
