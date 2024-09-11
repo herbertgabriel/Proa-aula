@@ -18,9 +18,9 @@ class Funcionario {
     }
 
     listarAtividades() {
-        console.log(${this._nome} (${this._cargo}) tem as seguintes atividades:);
+        console.log(`${this._nome} (${this._cargo}) tem as seguintes atividades:`);
         this._atividades.forEach((atividade, index) => {
-            console.log(${index + 1}. ${atividade});
+            console.log(`${index + 1}. ${atividade}`);
         });
     }
 }
@@ -31,7 +31,7 @@ class Engenheiro extends Funcionario {
     }
 
     reportarBug(bug) {
-        this.adicionarAtividade(Relatar bug: ${bug});
+        this.adicionarAtividade(`Relatar bug: ${bug}`);
     }
 }
 
@@ -41,7 +41,7 @@ class Designer extends Funcionario {
     }
 
     criarDesign(design) {
-        this.adicionarAtividade(Criar design: ${design});
+        this.adicionarAtividade(`Criar design: ${design}`);
     }
 }
 
